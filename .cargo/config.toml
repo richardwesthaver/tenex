@@ -1,0 +1,13 @@
+[source]
+[source.crates-io]
+#replace-with = "crater"
+[source.crater]
+directory = "/mnt/cia1/shed/contrib/lib/rust/crater"
+
+[unstable]
+mtime-on-use = true
+timings = ["info"]
+multitarget = true
+
+[doc.extern-map.registries]
+crates-io = "https://docs.rs/"
