@@ -1,20 +1,19 @@
-/// Tenex binary toolbox
-///
-/// Tenex is a collection of General-purpose CLI programs similar in
-/// spirit to busybox. Programs can be bundled into a unified binary,
-/// or executed individually.
-///
-/// * Programs
-///   - weather
-///   - getip
-///   - pack
-///   - dietdb
-///   - serve
+//! Tenex binary toolbox
+//!
+//! Tenex is a high-level library that provides modules for writing
+//! API clients very quickly.
+//!
+//! This library depends on 'rlib' modules, which contains all
+//! low-level implementation details, as well as third-party libraries
+//! for specific APIs behind feature flags.
+//!
+//! To use this library, add one or more of the features available:
+//! ```tenex = { version = "0.1.0", features = ["openai", "myip", "aws"] }```
 
 #[cfg(test)]
 mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+  #[ctx::test]
+  fn it_works() {
+    assert_eq!(2 + 2, 4);
+  }
 }

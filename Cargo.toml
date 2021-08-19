@@ -3,3 +3,8 @@ name = "tenex"
 version = "0.1.0"
 edition = "2018"
 
+[dependencies]
+net = { version = "0.1.0", path = "../rlib/net" }
+ctx = { version = "0.1.0", path = "../rlib/ctx" }
+cfg = { version = "0.1.0", path = "../rlib/cfg" }
+obj= { version = "0.1.0", path = "../rlib/obj" }
