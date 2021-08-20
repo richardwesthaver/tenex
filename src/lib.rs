@@ -1,6 +1,6 @@
-//! Tenex binary toolbox
+//! Tenex
 //!
-//! Tenex is a high-level library that provides modules for writing
+//! A high-level library that provides modules for writing
 //! API clients very quickly.
 //!
 //! This library depends on 'rlib' modules, which contains all
@@ -9,11 +9,7 @@
 //!
 //! To use this library, add one or more of the features available:
 //! ```tenex = { version = "0.1.0", features = ["openai", "myip", "aws"] }```
+mod client;
 
 #[cfg(test)]
-mod tests {
-  #[ctx::test]
-  fn it_works() {
-    assert_eq!(2 + 2, 4);
-  }
-}
+mod tests;

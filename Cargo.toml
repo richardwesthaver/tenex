@@ -4,7 +4,14 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
+# rlib
 net = { version = "0.1.0", path = "../rlib/net" }
 ctx = { version = "0.1.0", path = "../rlib/ctx" }
 cfg = { version = "0.1.0", path = "../rlib/cfg" }
 obj= { version = "0.1.0", path = "../rlib/obj" }
+# contrib
+serde_json = "1.0.66"
+serde = { version = "1.0.127", features = ["derive"] }
+ron = "0.6.4"
+chrono = { version = "0.4.19", features = ["serde"] }
+lettre = { version = "0.10.0-rc.3", path = "../../../contrib/rust/lettre", features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "builder"] }
