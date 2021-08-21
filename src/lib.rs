@@ -9,7 +9,15 @@
 //!
 //! To use this library, add one or more of the features available:
 //! ```tenex = { version = "0.1.0", features = ["openai", "myip", "aws"] }```
-mod client;
+#[cfg(feature="net")]
+pub mod client;
+
+#[cfg(feature="ipapi")]
+pub use crate::client::ipapi;
+#[cfg(feature="nws")]
+pub use crate::client::nws;
+#[cfg(feature="openai")]
+pub use crate::client::openai;
 
 #[cfg(test)]
 mod tests;

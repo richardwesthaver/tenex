@@ -1,12 +1,10 @@
 use super::{
-  Client, APP_USER_AGENT,
+  Client, Error
 };
-use net::Result;
 use std::net::IpAddr;
 
 use logger::log::trace;
 
-use super::{Client, Error};
 pub async fn my_ip_verbose() -> Result<(), Error> {
   let echo_json: serde_json::Value = Client::new()
     .get("https://ipwhois.app/json/")
@@ -30,7 +28,8 @@ pub async fn my_ip() -> Result<IpAddr, Error> {
   Ok(res.parse().unwrap())
 }
 
-pub async fn get_ip() {
+pub async fn get_ip() -> Result<(), Error> {
   let ip = my_ip().await.expect("should return IP");
   println!("--++-- PUBLIC_IP === {:#?} --++--", ip);
+  Ok(())
 }

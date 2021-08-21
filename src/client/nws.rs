@@ -1,8 +1,6 @@
 use obj::object::Point;
-use std::{fs::File, path::PathBuf};
-use logger::log::error;
-use super::Client;
-use crate::Result;
+use super::{Client, Error, APP_USER_AGENT};
+use logger::log::info;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -23,7 +21,7 @@ impl City {
   ///
   /// Returns Ok(Point) on success. Note that only f32 values are
   /// accepted (0. 1. -- not 0 1).
-  pub fn into_point(&self) -> Result<Point, std::io::Error> {
+  pub fn into_point(&self) -> Result<Point, obj::Error> {
     Ok(Point {
       lat: self.lat,
       lng: self.lng,
@@ -111,9 +109,9 @@ pub struct ForecastPeriod {
   #[serde(rename(deserialize = "temperatureUnit"))]
   pub temperature_unit: String,
   #[serde(rename(deserialize = "windSpeed"))]
-  pub wind_speed: String,
+  pub wind_speed: Option<String>,
   #[serde(rename(deserialize = "windDirection"))]
-  pub wind_direction: String,
+  pub wind_direction: Option<String>,
   pub icon: String,
   #[serde(rename(deserialize = "shortForecast"))]
   pub short_forecast: String,
@@ -151,8 +149,8 @@ impl WeatherBundle {
         start: i.start_time,
         end: i.end_time,
         temperature: i.temperature,
-        wind_speed: i.wind_speed.to_string(),
-        wind_direction: i.wind_direction.to_string(),
+        wind_speed: i.wind_speed.as_ref().unwrap().to_string(),
+        wind_direction: i.wind_direction.as_ref().unwrap().to_string(),
         short_forecast: i.short_forecast.to_string(),
       };
       vec.push(i);
@@ -165,7 +163,7 @@ impl WeatherBundle {
   }
 }
 
-pub async fn get_point(pnt: &Point, client: &Client) -> Result<PointInfo> {
+pub async fn get_point(pnt: &Point, client: &Client) -> Result<PointInfo, Error> {
   let mut url: String = String::from("http://api.weather.gov/");
   for i in &["points/", &pnt.lat.to_string(), ",", &pnt.lng.to_string()] {
     url.push_str(i);
@@ -176,37 +174,28 @@ pub async fn get_point(pnt: &Point, client: &Client) -> Result<PointInfo> {
   Ok(res)
 }
 
-pub async fn get_forecast(pnt: &PointInfo, client: &Client) -> Result<Forecast> {
+pub async fn get_forecast(pnt: &PointInfo, client: &Client) -> Result<Forecast, Error> {
+  
   let response = client.get(&pnt.properties.forecast).send().await?;
   let body = response.text().await?;
+  info!("{}", body);
   let res: Forecast = serde_json::from_str(&body)?;
   Ok(res)
 }
 
-pub async fn get_forecast_hourly(pnt: &PointInfo, client: &Client) -> Result<Forecast> {
+pub async fn get_forecast_hourly(pnt: &PointInfo, client: &Client) -> Result<Forecast, Error> {
   let response = client.get(&pnt.properties.forecast_hourly).send().await?;
   let body = response.text().await?;
   let res: Forecast = serde_json::from_str(&body)?;
   Ok(res)
 }
 
-pub async fn weather_report() -> Result<()> {
+pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
   let client = Client::builder()
     .user_agent(APP_USER_AGENT)
-    .build()
-    .unwrap();
+    .build()?;
 
-  let file = PathBuf::from_str(option_env!("STASH_CFG")?)?.join("user.ron");
-
-  debug!("user/cfg :=: {:?}", &file);
-  let user_point = File::open(file)?;
-  let point: Point = match ron::de::from_reader(user_point) {
-    Ok(x) => x,
-    Err(e) => {
-      error!("Failed to load config: {}", e);
-      std::process::exit(1);
-    }
-  };
+  let point = Point { lat, lng };
 
   let res = get_point(&point, &client)
     .await?;
