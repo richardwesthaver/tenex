@@ -1,23 +1,23 @@
 use std::env;
 
-pub(crate) use net::{ Error, client::Client };
+pub(crate) use net::{client::Client, Error};
 
-#[cfg(feature="ipapi")]
+#[cfg(feature = "ipapi")]
 pub mod ipapi;
-#[cfg(feature="nws")]
+#[cfg(feature = "nws")]
 pub mod nws;
 
 /// User-Agent HTTP Header value
 pub static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 
-#[cfg(feature="ipapi")]
+#[cfg(feature = "ipapi")]
 #[ctx::test]
 async fn ipapi_test() {
   assert!(ipapi::my_ip().await.is_ok());
   assert!(ipapi::my_ip_verbose().await.is_ok());
 }
 
-#[cfg(feature="nws")]
+#[cfg(feature = "nws")]
 #[ctx::test]
 async fn nwsapi_test() {
   use obj::Point;

@@ -1,7 +1,7 @@
-use obj::object::Point;
 use super::{Client, Error, APP_USER_AGENT};
-use logger::log::debug;
 use chrono::{DateTime, Utc};
+use logger::log::debug;
+use obj::object::Point;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
@@ -176,7 +176,6 @@ pub async fn get_point(pnt: &Point, client: &Client) -> Result<PointInfo, Error>
 }
 
 pub async fn get_forecast(pnt: &PointInfo, client: &Client) -> Result<Forecast, Error> {
-  
   let response = client.get(&pnt.properties.forecast).send().await?;
   let body = response.text().await?;
   debug!("{}", body);
@@ -198,16 +197,12 @@ pub async fn get_alerts(_state: &str) -> Result<(), Error> {
 }
 
 pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
-  let client = Client::builder()
-    .user_agent(APP_USER_AGENT)
-    .build()?;
+  let client = Client::builder().user_agent(APP_USER_AGENT).build()?;
 
   let point = Point { lat, lng };
 
-  let res = get_point(&point, &client)
-    .await?;
-  let resf = get_forecast(&res, &client)
-    .await?;
+  let res = get_point(&point, &client).await?;
+  let resf = get_forecast(&res, &client).await?;
 
   for i in resf.properties.periods.iter() {
     println!("------------");

@@ -1,6 +1,4 @@
-use super::{
-  Client, Error
-};
+use super::{Client, Error};
 use std::net::IpAddr;
 
 use logger::log::trace;
