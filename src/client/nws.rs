@@ -192,7 +192,6 @@ pub async fn get_forecast_hourly(pnt: &PointInfo, client: &Client) -> Result<For
 
 /// TODO [2021-08-21] - get_alerts
 pub async fn get_alerts(_state: &str) -> Result<(), Error> {
-  todo!("2021-08-29");
   Ok(())
 }
 
@@ -205,8 +204,11 @@ pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
   let resf = get_forecast(&res, &client).await?;
 
   for i in resf.properties.periods.iter() {
-    println!("------------");
-    println!("{:#?} -:- {:#?}", &i.name, &i.detailed_forecast);
+    println!(
+      "{:?} -- [{:#?} - {:#?}]\ntemperature: {:#?}\n{:#?}\n",
+      &i.name, &i.start_time, &i.end_time, &i.temperature, &i.short_forecast
+    );
+    println!("------------\n");
   }
   Ok(())
 }

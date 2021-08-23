@@ -1,10 +1,9 @@
 use super::{Client, Error};
+use logger::log::trace;
 use std::net::IpAddr;
 
-use logger::log::trace;
-
-pub async fn my_ip_verbose() -> Result<(), Error> {
-  let echo_json: serde_json::Value = Client::new()
+pub async fn my_ip_verbose() -> Result<serde_json::Value, Error> {
+  let echo_json = Client::new()
     .get("https://ipwhois.app/json/")
     .send()
     .await?
@@ -12,7 +11,7 @@ pub async fn my_ip_verbose() -> Result<(), Error> {
     .await?;
 
   trace!("{:#?}", echo_json);
-  Ok(())
+  Ok(echo_json)
 }
 
 pub async fn my_ip() -> Result<IpAddr, Error> {
@@ -27,7 +26,7 @@ pub async fn my_ip() -> Result<IpAddr, Error> {
 }
 
 pub async fn get_ip() -> Result<(), Error> {
-  let ip = my_ip().await.expect("should return IP");
-  println!("--++-- PUBLIC_IP === {:#?} --++--", ip);
+  let ip = my_ip().await?;
+  println!("PUBLIC_IP : {:#?}", ip);
   Ok(())
 }
