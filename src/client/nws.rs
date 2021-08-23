@@ -1,6 +1,6 @@
 use obj::object::Point;
 use super::{Client, Error, APP_USER_AGENT};
-use logger::log::info;
+use logger::log::debug;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -170,6 +170,7 @@ pub async fn get_point(pnt: &Point, client: &Client) -> Result<PointInfo, Error>
   }
   let response = client.get(&url).send().await?;
   let body = response.text().await?;
+  debug!("{}", body);
   let res: PointInfo = serde_json::from_str(&body)?;
   Ok(res)
 }
@@ -178,7 +179,7 @@ pub async fn get_forecast(pnt: &PointInfo, client: &Client) -> Result<Forecast, 
   
   let response = client.get(&pnt.properties.forecast).send().await?;
   let body = response.text().await?;
-  info!("{}", body);
+  debug!("{}", body);
   let res: Forecast = serde_json::from_str(&body)?;
   Ok(res)
 }
@@ -188,6 +189,12 @@ pub async fn get_forecast_hourly(pnt: &PointInfo, client: &Client) -> Result<For
   let body = response.text().await?;
   let res: Forecast = serde_json::from_str(&body)?;
   Ok(res)
+}
+
+/// TODO [2021-08-21] - get_alerts
+pub async fn get_alerts(_state: &str) -> Result<(), Error> {
+  todo!("2021-08-29");
+  Ok(())
 }
 
 pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
@@ -208,4 +215,3 @@ pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
   }
   Ok(())
 }
-
