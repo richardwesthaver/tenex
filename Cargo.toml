@@ -2,6 +2,13 @@
 name = "tenex"
 version = "0.1.0"
 edition = "2018"
+authors = ["ellis"]
+description = "Tenex programming library"
+documentation = "https://docs.rwest.io/tenex"
+repository = "https://hg.rwest.io/tenex"
+readme = "META"
+license-file = "COPYING"
+publish = ["crater"]
 
 [features]
 default = []
