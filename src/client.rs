@@ -1,6 +1,6 @@
 use std::env;
 
-pub(crate) use net::{client::Client, Error};
+pub(crate) use net::{Client, Error};
 
 #[cfg(feature = "ipapi")]
 pub mod ipapi;

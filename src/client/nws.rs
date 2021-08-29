@@ -1,7 +1,7 @@
 use super::{Client, Error, APP_USER_AGENT};
 use chrono::{DateTime, Utc};
 use logger::log::debug;
-use obj::object::Point;
+use obj::Point;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
