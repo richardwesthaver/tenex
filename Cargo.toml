@@ -9,6 +9,7 @@ repository = "https://hg.rwest.io/tenex"
 readme = "META"
 license-file = "COPYING"
 publish = ["crater"]
+resolver = "2"
 
 [features]
 default = []
@@ -16,6 +17,7 @@ full = ["ipapi", "nws", "email"]
 ipapi = ["net", "obj"]
 nws = ["net", "obj"]
 email = ["lettre", "net"]
+openai = []
 [dependencies]
 # rlib
 ctx = { version = "0.1.0", path = "../rlib/ctx" }
