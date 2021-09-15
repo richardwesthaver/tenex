@@ -1,12 +1,14 @@
 use std::env;
 
-pub(crate) use net::{Client, Error};
+pub(crate) use net::Client;
+pub(crate) use net::Error;
 
 #[cfg(feature = "ipapi")]
 pub mod ipapi;
 #[cfg(feature = "nws")]
 pub mod nws;
-
+#[cfg(feature = "openai")]
+pub mod openai;
 /// User-Agent HTTP Header value
 pub static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 

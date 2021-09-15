@@ -9,6 +9,8 @@
 //!
 //! To use this library, add one or more of the features available:
 //! ```tenex = { version = "0.1.0", features = ["openai", "email", "aws"] }```
+pub use util::Result;
+
 #[cfg(feature = "net")]
 pub mod client;
 #[cfg(feature = "email")]

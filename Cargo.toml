@@ -13,17 +13,22 @@ resolver = "2"
 
 [features]
 default = []
-full = ["ipapi", "nws", "email"]
+full = ["ipapi", "nws", "email", "openai", "google", "aws", "github", "discord"]
 ipapi = ["net", "obj"]
 nws = ["net", "obj"]
 email = ["lettre", "net"]
-openai = []
+openai = ["jwt", "net"]
+google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt", "net"]
+aws = ["aws-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
+github = ["octocrab"]
+discord = ["serenity"]
 [dependencies]
 # rlib
 ctx = { version = "0.1.0", path = "../rlib/ctx" }
 cfg = { version = "0.1.0", path = "../rlib/cfg" }
 net = { version = "0.1.0", path = "../rlib/net", features = ["client"], optional = true }
 obj = { version = "0.1.0", path = "../rlib/obj", optional = true }
+util = { version = "0.1.0", path = "../rlib/util", features = ["anyhow"] }
 logger = { version = "0.1.0", path = "../rlib/logger" }
 # contrib
 serde_json = "1.0.66"
@@ -31,3 +36,17 @@ serde = { version = "1.0.127", features = ["derive"] }
 ron = "0.6.4"
 chrono = { version = "0.4.19", features = ["serde"] }
 lettre = { version = "0.10.0-rc.3", path = "../contrib/rust/lettre", features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "builder"], optional = true }
+jwt = { version = "0.15.0", optional = true }
+oauth2 = { version = "4.1.0", optional = true }
+google-drive3 = { version = "2.0.8", optional = true }
+google-dns1 = { version = "2.0.8", optional = true }
+google-tpu1 = { version = "2.0.8", optional = true }
+google-youtube3 = { version = "2.0.8", optional = true }
+aws-config = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-config", optional = true }
+aws-sdk-ec2 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-ec2", optional = true }
+aws-sdk-route53 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-route53", optional = true }
+aws-sdk-s3 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-s3", optional = true }
+aws-sdk-medialive = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-medialive", optional = true }
+aws-sdk-mturk = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-mturk", optional = true }
+octocrab = { version = "0.9", optional = true }
+serenity = { version = "0.10.9", optional = true }
