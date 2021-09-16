@@ -1,4 +1,5 @@
-use super::{Client, Error};
+use crate::Error;
+use net::reqwest::Client;
 use logger::log::trace;
 use std::net::IpAddr;
 

@@ -1,4 +1,6 @@
-use super::{Client, Error, APP_USER_AGENT};
+use super::APP_USER_AGENT;
+use net::reqwest::Client;
+use crate::Error;
 use chrono::{DateTime, Utc};
 use logger::log::debug;
 use obj::Point;

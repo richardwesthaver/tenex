@@ -14,11 +14,11 @@ resolver = "2"
 [features]
 default = []
 full = ["ipapi", "nws", "email", "openai", "google", "aws", "github", "discord"]
-ipapi = ["net", "obj"]
-nws = ["net", "obj"]
-email = ["lettre", "net"]
-openai = ["jwt", "net"]
-google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt", "net"]
+ipapi = ["obj"]
+nws = ["obj"]
+email = ["lettre"]
+openai = ["jwt"]
+google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt"]
 aws = ["aws-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
 github = ["octocrab"]
 discord = ["serenity"]
@@ -26,7 +26,7 @@ discord = ["serenity"]
 # rlib
 ctx = { version = "0.1.0", path = "../rlib/ctx" }
 cfg = { version = "0.1.0", path = "../rlib/cfg" }
-net = { version = "0.1.0", path = "../rlib/net", features = ["client"], optional = true }
+net = { version = "0.1.0", path = "../rlib/net", features = ["client"] }
 obj = { version = "0.1.0", path = "../rlib/obj", optional = true }
 util = { version = "0.1.0", path = "../rlib/util", features = ["anyhow"] }
 logger = { version = "0.1.0", path = "../rlib/logger" }
