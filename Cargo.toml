@@ -25,9 +25,8 @@ discord = ["serenity"]
 [dependencies]
 # rlib
 ctx = { version = "0.1.0", path = "../rlib/ctx" }
-cfg = { version = "0.1.0", path = "../rlib/cfg" }
 net = { version = "0.1.0", path = "../rlib/net", features = ["client"] }
-obj = { version = "0.1.0", path = "../rlib/obj", optional = true }
+obj = { version = "0.1.0", path = "../rlib/obj", optional = true, features = ["object", "config"] }
 util = { version = "0.1.0", path = "../rlib/util", features = ["anyhow"] }
 logger = { version = "0.1.0", path = "../rlib/logger" }
 # contrib
