@@ -4,7 +4,6 @@ use net::reqwest::Client;
 #[cfg(feature = "ipapi")]
 #[ctx::test]
 async fn ipapi_test() {
-
   use crate::ipapi;
 
   assert!(ipapi::my_ip().await.is_ok());
@@ -14,7 +13,6 @@ async fn ipapi_test() {
 #[cfg(feature = "nws")]
 #[ctx::test]
 async fn nwsapi_test() {
-
   use crate::nws;
   use obj::Point;
 

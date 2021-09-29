@@ -1,9 +1,9 @@
 use super::APP_USER_AGENT;
-use net::reqwest::Client;
 use crate::Error;
 use chrono::{DateTime, Utc};
 use logger::log::debug;
-use obj::Point;
+use net::reqwest::Client;
+use obj::object::location::Point;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 

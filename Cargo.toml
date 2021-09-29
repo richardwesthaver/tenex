@@ -13,14 +13,13 @@ resolver = "2"
 
 [features]
 default = []
-full = ["ipapi", "nws", "email", "openai", "google", "aws", "github", "discord"]
+full = ["ipapi", "nws", "email", "openai", "google", "aws", "discord"]
 ipapi = ["obj"]
 nws = ["obj"]
 email = ["lettre"]
 openai = ["jwt"]
 google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt"]
-aws = ["aws-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
-github = ["octocrab"]
+aws = ["aws-sdk-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
 discord = ["serenity"]
 [dependencies]
 # rlib
@@ -41,11 +40,11 @@ google-drive3 = { version = "2.0.8", optional = true }
 google-dns1 = { version = "2.0.8", optional = true }
 google-tpu1 = { version = "2.0.8", optional = true }
 google-youtube3 = { version = "2.0.8", optional = true }
-aws-config = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-config", optional = true }
-aws-sdk-ec2 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-ec2", optional = true }
-aws-sdk-route53 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-route53", optional = true }
-aws-sdk-s3 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-s3", optional = true }
-aws-sdk-medialive = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-medialive", optional = true }
-aws-sdk-mturk = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.17-alpha", package = "aws-sdk-mturk", optional = true }
-octocrab = { version = "0.9", optional = true }
+aws-sdk-config = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-config", optional = true }
+aws-sdk-ec2 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-ec2", optional = true }
+aws-sdk-route53 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-route53", optional = true }
+aws-sdk-s3 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-s3", optional = true }
+aws-sdk-medialive = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-medialive", optional = true }
+aws-sdk-mturk = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-mturk", optional = true }
+# octocrab = { version = "0.12", optional = true }
 serenity = { version = "0.10.9", optional = true }
