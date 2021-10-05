@@ -14,20 +14,16 @@ resolver = "2"
 [features]
 default = []
 full = ["ipapi", "nws", "email", "openai", "google", "aws", "discord"]
-ipapi = ["obj"]
-nws = ["obj"]
+ipapi = []
+nws = []
 email = ["lettre"]
 openai = ["jwt"]
-google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt"]
+google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt", "yup-oauth2"]
 aws = ["aws-sdk-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
 discord = ["serenity"]
 [dependencies]
 # rlib
-ctx = { version = "0.1.0", path = "../rlib/ctx" }
-net = { version = "0.1.0", path = "../rlib/net", features = ["client"] }
-obj = { version = "0.1.0", path = "../rlib/obj", optional = true, features = ["object", "config"] }
-util = { version = "0.1.0", path = "../rlib/util", features = ["anyhow"] }
-logger = { version = "0.1.0", path = "../rlib/logger" }
+rlib = { version = "0.1.0", path = "../rlib", features = ["ctx", "net", "objects", "configs", "anyhow", "logger", "tls"] }
 # contrib
 serde_json = "1.0.66"
 serde = { version = "1.0.127", features = ["derive"] }
@@ -36,6 +32,7 @@ chrono = { version = "0.4.19", features = ["serde"] }
 lettre = { version = "0.10.0-rc.3", path = "../contrib/rust/lettre", features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "builder"], optional = true }
 jwt = { version = "0.15.0", optional = true }
 oauth2 = { version = "4.1.0", optional = true }
+yup-oauth2 = { version = "5.1.0", optional = true }
 google-drive3 = { version = "2.0.8", optional = true }
 google-dns1 = { version = "2.0.8", optional = true }
 google-tpu1 = { version = "2.0.8", optional = true }

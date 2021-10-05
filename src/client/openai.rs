@@ -1,5 +1,5 @@
 use crate::Result;
-use net::reqwest::Client;
+use rlib::net::reqwest::Client;
 
 pub async fn get_completion(
   engine: &str,
@@ -24,11 +24,11 @@ pub struct BearerToken {
 
 impl std::fmt::Debug for BearerToken {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-    // Get the first few characters to help debug, but not accidentally log key
+    // Display first characters
     write!(
       f,
-      r#"Bearer {{ token: "{}" }}"#,
-      self.token.get(0..8).ok_or(std::fmt::Error)?
+      r#"Bearer {{ token: "{}*********" }}"#,
+      self.token.get(0..1).ok_or(std::fmt::Error)?
     )
   }
 }

@@ -1,5 +1,5 @@
 use crate::client::APP_USER_AGENT;
-use net::reqwest::Client;
+use rlib::net::reqwest::Client;
 
 #[cfg(feature = "ipapi")]
 #[ctx::test]

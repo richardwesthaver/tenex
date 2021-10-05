@@ -1,9 +1,9 @@
 use super::APP_USER_AGENT;
 use crate::Error;
 use chrono::{DateTime, Utc};
-use logger::log::debug;
-use net::reqwest::Client;
-use obj::object::location::Point;
+use rlib::logger::log::debug;
+use rlib::net::reqwest::Client;
+use rlib::obj::object::location::Point;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
@@ -23,7 +23,7 @@ impl City {
   ///
   /// Returns Ok(Point) on success. Note that only f32 values are
   /// accepted (0. 1. -- not 0 1).
-  pub fn into_point(&self) -> Result<Point, obj::Error> {
+  pub fn into_point(&self) -> Result<Point, rlib::obj::Error> {
     Ok(Point {
       lat: self.lat,
       lng: self.lng,
