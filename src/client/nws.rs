@@ -1,6 +1,6 @@
 use super::APP_USER_AGENT;
 use crate::Error;
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Local};
 use rlib::logger::log::debug;
 use rlib::net::reqwest::Client;
 use rlib::obj::object::location::Point;
@@ -88,10 +88,10 @@ pub struct Forecast {
 /// Inner properties object of Forecast
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ForecastProps {
-  pub updated: DateTime<Utc>,
+  pub updated: DateTime<Local>,
   pub units: String,
   #[serde(rename(deserialize = "generatedAt"))]
-  pub generated_at: DateTime<Utc>,
+  pub generated_at: DateTime<Local>,
   pub elevation: Value,
   pub periods: Vec<ForecastPeriod>,
 }
@@ -102,9 +102,9 @@ pub struct ForecastPeriod {
   pub number: u16,
   pub name: String,
   #[serde(rename(deserialize = "startTime"))]
-  pub start_time: DateTime<Utc>,
+  pub start_time: DateTime<Local>,
   #[serde(rename(deserialize = "endTime"))]
-  pub end_time: DateTime<Utc>,
+  pub end_time: DateTime<Local>,
   #[serde(rename(deserialize = "isDaytime"))]
   pub is_day_time: bool,
   pub temperature: i8,
@@ -124,8 +124,8 @@ pub struct ForecastPeriod {
 /// Forecast output representation
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ForecastBundle {
-  pub start: DateTime<Utc>,
-  pub end: DateTime<Utc>,
+  pub start: DateTime<Local>,
+  pub end: DateTime<Local>,
   pub temperature: i8,
   pub wind_speed: String, // TODO parse from string to int "30 mph" -> 30
   pub wind_direction: String,
@@ -139,7 +139,7 @@ pub struct ForecastBundle {
 pub struct WeatherBundle {
   pub location: City,
   pub forecast: Vec<ForecastBundle>,
-  pub updated: DateTime<Utc>,
+  pub updated: DateTime<Local>,
 }
 
 impl WeatherBundle {
@@ -203,14 +203,12 @@ pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
   let point = Point { lat, lng };
 
   let res = get_point(&point, &client).await?;
-  let resf = get_forecast(&res, &client).await?;
-
-  for i in resf.properties.periods.iter() {
+  let resf = get_forecast_hourly(&res, &client).await?;
+  for i in resf.properties.periods[0..10].into_iter() {
     println!(
-      "{:?} -- [{:#?} - {:#?}]\ntemperature: {:#?}\n{:#?}\n",
-      &i.name, &i.start_time, &i.end_time, &i.temperature, &i.short_forecast
+      "{:#?}-{:#?} t:{:#?} {:#?}",
+      &i.start_time.time(), &i.end_time.time(), &i.temperature, &i.short_forecast
     );
-    println!("------------\n");
   }
   Ok(())
 }
