@@ -10,8 +10,8 @@
 //! get an ApplicationSecret in-browser with:
 //! `Google Developer Console at APIs & auth -> Credentials -> Download JSON`
 use crate::Result;
-pub use google_drive3::api::{Scope, Permission};
 use google_dns1::Dns;
+pub use google_drive3::api::{Permission, Scope};
 use google_drive3::DriveHub;
 use rlib::net::http::{hyper, hyper_rustls::HttpsConnector, oauth::Oauth2Config};
 use std::default::Default;
