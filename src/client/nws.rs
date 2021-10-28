@@ -3,7 +3,7 @@ use crate::Error;
 use chrono::{DateTime, Local};
 use rlib::logger::log::debug;
 use rlib::net::reqwest::Client;
-use rlib::obj::object::location::Point;
+use rlib::obj::Point;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
