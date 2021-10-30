@@ -1,0 +1,26 @@
+# Created 2021-10-30 Sat 08:24
+#+title: tenex
+#+author: ellis
+- what -> A Rust HTTP Client library
+  - ergonomic wrappers for foreign APIs
+  - features -> {google, AWS, discord, openAI, ipapi, NWS}
+- why -> isolation of vendor-specific network calls
+  - apps ->
+    - cloud management tools (google_drive, gmail, EC2, discord_bots)
+    - basic API requests (IP_info, weather_forecast[US only])
+    - async task pools (cross_API_chaining, chatbots_with_triggers, deployment_pipelines)
+    - FFI (WASM/Python/C)
+- status -- ALPHA
+- [[https://hg.rwest.io/tenex][src]] <-
+- [[https://docs.rwest.io/tenex][docs]] <-
+* Features
+- Clients
+  - [X] NWS (US Weather)
+  - [X] ipapi (public IP lookup)
+  - [ ] openai (beta API)
+  - [ ] Google Cloud
+  - [ ] AWS
+  - [X] SMTPS (smtp.gmail.com)
+- [ ] Authentication
+  - [ ] JWT
+  - [ ] OAuth
