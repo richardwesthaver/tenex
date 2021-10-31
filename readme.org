@@ -1,6 +1,5 @@
-# Created 2021-10-30 Sat 08:24
+# Created 2021-10-31 Sun 05:06
 #+title: tenex
-#+author: ellis
 - what -> A Rust HTTP Client library
   - ergonomic wrappers for foreign APIs
   - features -> {google, AWS, discord, openAI, ipapi, NWS}

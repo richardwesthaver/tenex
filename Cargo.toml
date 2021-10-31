@@ -1,7 +1,7 @@
 [package]
 name = "tenex"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 authors = ["ellis"]
 description = "Tenex programming library"
 documentation = "https://docs.rwest.io/tenex"
@@ -9,7 +9,6 @@ repository = "https://hg.rwest.io/tenex"
 readme = "META"
 license-file = "COPYING"
 publish = ["crater"]
-resolver = "2"
 
 [features]
 default = []
@@ -21,6 +20,7 @@ openai = ["jwt"]
 google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt", "yup-oauth2"]
 aws = ["aws-sdk-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
 discord = ["serenity"]
+
 [dependencies]
 # rlib
 rlib = { version = "0.1.0", path = "../rlib", features = ["ctx", "net", "obj", "anyhow", "logger", "tls"] }
