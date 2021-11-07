@@ -3,28 +3,32 @@ name = "tenex"
 version = "0.1.0"
 edition = "2021"
 authors = ["ellis"]
-description = "Tenex programming library"
+description = "a network client library"
 documentation = "https://docs.rwest.io/tenex"
 repository = "https://hg.rwest.io/tenex"
 readme = "META"
 license-file = "COPYING"
 publish = ["crater"]
 
+[workspace]
+members = ["google", "aws"]
 [features]
 default = []
-full = ["ipapi", "nws", "email", "openai", "google", "aws", "discord"]
+full = ["ipapi", "nws", "email", "openai", "discord", "google", "aws"]
 ipapi = []
 nws = []
 email = ["lettre"]
 openai = ["jwt"]
-google = ["google-drive3", "google-dns1", "google-tpu1", "google-youtube3", "jwt", "yup-oauth2"]
-aws = ["aws-sdk-config", "aws-sdk-ec2", "aws-sdk-route53", "aws-sdk-s3", "aws-sdk-medialive", "aws-sdk-mturk"]
 discord = ["serenity"]
 
 [dependencies]
+# internal
+google = { version = "0.1.0", path = "google", optional = true }
+aws = { version = "0.1.0", path = "aws", optional = true }
 # rlib
-rlib = { version = "0.1.0", path = "../rlib", features = ["ctx", "net", "obj", "anyhow", "logger", "tls"] }
+rlib = { version = "0.1.0", path = "../rlib", features = ["net", "obj", "anyhow", "logger", "tls"] }
 # contrib
+tokio = "1.13"
 serde_json = "1.0.66"
 serde = { version = "1.0.127", features = ["derive"] }
 ron = "0.6.4"
@@ -32,16 +36,5 @@ chrono = { version = "0.4.19", features = ["serde"] }
 lettre = { version = "0.10.0-rc.3", path = "../contrib/rust/lettre", features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "builder"], optional = true }
 jwt = { version = "0.15.0", optional = true }
 oauth2 = { version = "4.1.0", optional = true }
-yup-oauth2 = { version = "5.1.0", optional = true }
-google-drive3 = { version = "2.0.9", optional = true }
-google-dns1 = { version = "2.0.8", optional = true }
-google-tpu1 = { version = "2.0.8", optional = true }
-google-youtube3 = { version = "2.0.8", optional = true }
-aws-sdk-config = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-config", optional = true }
-aws-sdk-ec2 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-ec2", optional = true }
-aws-sdk-route53 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-route53", optional = true }
-aws-sdk-s3 = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-s3", optional = true }
-aws-sdk-medialive = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-medialive", optional = true }
-aws-sdk-mturk = { git = "https://github.com/awslabs/aws-sdk-rust", tag = "v0.0.19-alpha", package = "aws-sdk-mturk", optional = true }
 # octocrab = { version = "0.12", optional = true }
 serenity = { version = "0.10.9", optional = true }

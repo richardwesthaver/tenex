@@ -1,0 +1,13 @@
+[package]
+name = "aws"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = "1.13"
+aws-sdk-config = "0.0.22-alpha"
+aws-sdk-ec2 = "0.0.22-alpha"
+aws-sdk-route53 = "0.0.22-alpha"
+aws-sdk-s3 = "0.0.22-alpha"
+aws-sdk-medialive = "0.0.22-alpha"
+aws-sdk-mturk = "0.0.22-alpha"

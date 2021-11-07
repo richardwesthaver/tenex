@@ -8,31 +8,27 @@ libraries for specific APIs behind feature flags.
 
 To use this library, add one or more of the features available:
 
-```tenex = { version = "0.1.0", features = ["openai", "email", "aws"] }```
+```tenex = { version = "0.1.0", features = ["google", "ipapi", "aws"] }```
 */
 
 pub use rlib::net::Error;
 pub use rlib::util::Result;
 
-pub mod client;
+#[cfg(feature = "google")]
+pub use google;
+#[cfg(feature = "aws")]
+pub use aws;
 
+mod client;
 #[cfg(feature = "email")]
 pub mod email;
-
-#[cfg(feature = "aws")]
-pub use crate::client::aws;
 #[cfg(feature = "discord")]
-pub use crate::client::discord;
-#[cfg(feature = "github")]
-pub use crate::client::github;
-#[cfg(feature = "google")]
-pub use crate::client::google;
+pub use client::discord;
 #[cfg(feature = "ipapi")]
-pub use crate::client::ipapi;
+pub use client::ipapi;
 #[cfg(feature = "nws")]
-pub use crate::client::nws;
+pub use client::nws;
 #[cfg(feature = "openai")]
-pub use crate::client::openai;
-
+pub use client::openai;
 #[cfg(test)]
 mod tests;

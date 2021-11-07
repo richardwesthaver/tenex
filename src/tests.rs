@@ -1,8 +1,7 @@
-use crate::client::APP_USER_AGENT;
 use rlib::net::reqwest::Client;
 
 #[cfg(feature = "ipapi")]
-#[ctx::test]
+#[tokio::test]
 async fn ipapi_test() {
   use crate::ipapi;
 
@@ -11,14 +10,13 @@ async fn ipapi_test() {
 }
 
 #[cfg(feature = "nws")]
-#[ctx::test]
+#[tokio::test]
 async fn nwsapi_test() {
   use crate::nws;
-  use obj::Point;
+  use rlib::obj::Point;
 
   let pnt = Point::new(41.320361, -72.063304);
   let client = Client::builder()
-    .user_agent(APP_USER_AGENT)
     .build()
     .unwrap();
   let res = nws::get_point(&pnt, &client).await.unwrap();
@@ -27,7 +25,7 @@ async fn nwsapi_test() {
 }
 
 #[cfg(feature = "openai")]
-#[ctx::test]
-fn openai_test() {
+#[tokio::test]
+async fn openai_test() {
   use crate::openai;
 }

@@ -1,4 +1,3 @@
-use super::APP_USER_AGENT;
 use crate::Error;
 use chrono::{DateTime, Local};
 use rlib::logger::log::debug;
@@ -198,7 +197,7 @@ pub async fn get_alerts(_state: &str) -> Result<(), Error> {
 }
 
 pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
-  let client = Client::builder().user_agent(APP_USER_AGENT).build()?;
+  let client = Client::builder().user_agent("thunderman").build()?;
 
   let point = Point { lat, lng };
 
