@@ -1,4 +1,4 @@
-# Created 2021-11-11 Thu 04:27
+# Created 2021-11-17 Wed 00:43
 #+title: tenex
 - what -> A Rust HTTP Client library
   - ergonomic wrappers for foreign APIs
@@ -12,6 +12,15 @@
 - status -- ALPHA
 - [[https://hg.rwest.io/tenex][src]] <-
 - [[https://docs.rwest.io/tenex][docs]] <-
+
+#+results: 
+| key     | val                                      |
+|---------+------------------------------------------|
+| name    | nil                                      |
+| version | alpha-0.1                                |
+| rev     | [[https://hg.rwest.io/nil/rev/nil][nil]] |
+| update  | nil                                      |
+
 * Features
 - Clients
   - [X] NWS (US Weather)
