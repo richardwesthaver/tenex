@@ -205,7 +205,7 @@ pub async fn weather_report(lat: f32, lng: f32) -> Result<(), Error> {
   let resf = get_forecast_hourly(&res, &client).await?;
   for i in resf.properties.periods[0..10].into_iter() {
     println!(
-      "{:#?}-{:#?} t:{:#?} {:#?}",
+      "{:#?}-{:#?} = {:#?}°F :: {:#?}",
       &i.start_time.time(),
       &i.end_time.time(),
       &i.temperature,
