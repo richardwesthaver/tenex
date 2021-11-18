@@ -1,4 +1,4 @@
-# Created 2021-11-17 Wed 23:02
+# Created 2021-11-17 Wed 23:20
 #+title: tenex
 - what -> A Rust HTTP Client library
   - ergonomic wrappers for foreign APIs
@@ -16,7 +16,7 @@
 #+results: 
 | name    | [[https://rwest.io/m#tenex][tenex]]                                                                                 |
 | version | alpha-0.1                                                                                                           |
-| vc      | [[https://hg.rwest.io/tenex/rev/51be643df8a8][51be643df8a8]], [[https://github.com/richardwesthaver/tenex][github]] |
+| vc      | [[https://hg.rwest.io/tenex/rev/12bd076a3df7][12bd076a3df7]], [[https://github.com/richardwesthaver/tenex][github]] |
 | updated | 22 hours ago                                                                                                        |
 
 * Features
