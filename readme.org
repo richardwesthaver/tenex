@@ -1,33 +1,19 @@
-# Created 2021-11-18 Thu 00:54
+# Created 2021-11-19 Fri 04:26
 #+title: tenex
-- what -> A Rust HTTP Client library
-  - ergonomic wrappers for foreign APIs
-  - features -> {google, AWS, discord, openAI, ipapi, NWS}
-- why -> isolation of vendor-specific network calls
-  - apps ->
-    - cloud management tools (google_drive, gmail, EC2, discord_bots)
-    - basic API requests (IP_info, weather_forecast[US only])
-    - async task pools (cross_API_chaining, chatbots_with_triggers, deployment_pipelines)
-    - FFI (WASM/Python/C)
-- status -- ALPHA
-- [[https://hg.rwest.io/tenex][src]] <-
-- [[https://docs.rwest.io/tenex][docs]] <-
+A Rust HTTP Client library.
+- ergonomic wrappers for foreign APIs
+- apps ->
+  - cloud management tools (google_drive, gmail, EC2, discord_bots)
+  - basic API requests (IP_info, weather_forecast[US only])
+  - async task pools (cross_API_chaining, chatbots_with_triggers, deployment_pipelines)
 
 #+results: 
-| name    | [[https://rwest.io/m#tenex][tenex]]                                                                                    |
-| version | alpha-0.1                                                                                                              |
-| vc      | [[https://hg.rwest.io/tenex/rev/0990bf704fee][47:0990bf704fee]], [[https://github.com/richardwesthaver/tenex][github]] |
-| updated | 23 hours ago                                                                                                           |
-| count   | 2955 lines, 5616 words                                                                                                 |
-
-* Features
-- Clients
-  - [X] NWS (US Weather)
-  - [X] ipapi (public IP lookup)
-  - [ ] openai (beta API)
-  - [ ] Google Cloud
-  - [ ] AWS
-  - [X] SMTPS (smtp.gmail.com)
-- [ ] Authentication
-  - [ ] JWT
-  - [ ] OAuth
+| info    |                                                                                                                         |
+|---------+-------------------------------------------------------------------------------------------------------------------------|
+| name    | [[https://rwest.io/m#tenex][tenex]]                                                                                     |
+| version | alpha-0.1                                                                                                               |
+| vc      | [[https://hg.rwest.io/tenex/rev/1b94e8c0276b][48+:1b94e8c0276b]], [[https://github.com/richardwesthaver/tenex][github]] |
+| updated | 26 hours ago                                                                                                            |
+| lines   | 6935 = λ:23290 #:155 _:2136                                                                                             |
+| langs   | (Markdown Org Python Rust Toml)                                                                                         |
+|---------+-------------------------------------------------------------------------------------------------------------------------|
