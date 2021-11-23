@@ -14,10 +14,10 @@ To use this library, add one or more of the features available:
 pub use rlib::net::Error;
 pub use rlib::util::Result;
 
-#[cfg(feature = "google")]
-pub use google;
 #[cfg(feature = "aws")]
 pub use aws;
+#[cfg(feature = "google")]
+pub use google;
 
 mod client;
 #[cfg(feature = "email")]

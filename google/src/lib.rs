@@ -9,9 +9,9 @@ pub mod drive;
 
 /// Create a new HTTPS client.
 pub fn https_client() -> common::TlsClient {
-    let conn = hyper_rustls::HttpsConnector::with_native_roots();
-    let cl = hyper::Client::builder().build(conn);
-    cl
+  let conn = hyper_rustls::HttpsConnector::with_native_roots();
+  let cl = hyper::Client::builder().build(conn);
+  cl
 }
 
 #[cfg(feature = "google")]
@@ -25,11 +25,11 @@ async fn test_drive() {
     sec,
     common::yup_oauth2::InstalledFlowReturnMethod::HTTPRedirect,
   )
-    .persist_tokens_to_disk("tokencache.json")
-    .hyper_client(https.clone())
-    .build()
-    .await
-    .expect("InstalledFlowAuthenticator failed to build");
+  .persist_tokens_to_disk("tokencache.json")
+  .hyper_client(https.clone())
+  .build()
+  .await
+  .expect("InstalledFlowAuthenticator failed to build");
 
   let scopes = vec![drive::DriveScopes::Drive];
   let mut cl = drive::FilesService::new(https, Arc::new(auth));

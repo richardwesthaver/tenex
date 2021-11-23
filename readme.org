@@ -1,4 +1,4 @@
-# Created 2021-11-19 Fri 04:51
+# Created 2021-11-23 Tue 04:46
 #+title: tenex
 A Rust HTTP Client library.
 - ergonomic wrappers for foreign APIs
@@ -8,12 +8,23 @@ A Rust HTTP Client library.
   - async task pools (cross_API_chaining, chatbots_with_triggers, deployment_pipelines)
 
 #+results: 
-| info    |                                                                                                                         |
 |---------+-------------------------------------------------------------------------------------------------------------------------|
 | name    | [[https://rwest.io/m#tenex][tenex]]                                                                                     |
 | version | alpha-0.1                                                                                                               |
-| vc      | [[https://hg.rwest.io/tenex/rev/1b94e8c0276b][48+:1b94e8c0276b]], [[https://github.com/richardwesthaver/tenex][github]] |
-| updated | 26 hours ago                                                                                                            |
-| lines   | 6935 = λ:23290 #:155 _:2136                                                                                             |
+| vc      | [[https://hg.rwest.io/tenex/rev/c1ee0399d690][52+:c1ee0399d690]], [[https://github.com/richardwesthaver/tenex][github]] |
+| updated | 3 days ago                                                                                                              |
+| lines   | 25603 = λ:23308 #:157 _:2138                                                                                            |
 | langs   | (Markdown Org Python Rust Toml)                                                                                         |
 |---------+-------------------------------------------------------------------------------------------------------------------------|
+#+results: 
+| includes | (readme.org Cargo.toml rustfmt.toml src/ aws/ google/) |
+
+#+results: 
+| file         | size |          updated |
+|--------------+------+------------------|
+| aws          |   26 | 2021-11-08-21:37 |
+| Cargo.toml   | 1.3K | 2021-11-08-21:37 |
+| google       |   98 | 2021-11-08-21:37 |
+| readme.org   | 1.9K | 2021-11-23-03:21 |
+| rustfmt.toml |   53 | 2021-11-08-21:37 |
+| src          |   74 | 2021-11-08-21:37 |

@@ -16,9 +16,7 @@ async fn nwsapi_test() {
   use rlib::obj::Point;
 
   let pnt = Point::new(41.320361, -72.063304);
-  let client = Client::builder()
-    .build()
-    .unwrap();
+  let client = Client::builder().build().unwrap();
   let res = nws::get_point(&pnt, &client).await.unwrap();
   nws::get_forecast(&res, &client).await.unwrap();
   nws::get_forecast_hourly(&res, &client).await.unwrap();

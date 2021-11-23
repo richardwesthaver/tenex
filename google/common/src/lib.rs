@@ -1,5 +1,5 @@
-//! Common types, imports, and functions used by generated code, including HTTP requests and error
-//! types.
+//! Common types, imports, and functions used by generated code, including HTTP
+//! requests and error types.
 //!
 //! This is not very useful on its own -- check out
 //! [async-google-apis](https://github.com/dermesser/async-google-apis) on github. It is a code
@@ -29,7 +29,6 @@ pub type Authenticator = yup_oauth2::authenticator::Authenticator<TlsConnr>;
 pub type TlsClient = hyper::Client<TlsConnr, hyper::Body>;
 pub type TlsConnr = hyper_rustls::HttpsConnector<hyper::client::HttpConnector>;
 
-pub trait DerefAuth: std::ops::Deref<Target=Authenticator> + Send + Sync {}
+pub trait DerefAuth: std::ops::Deref<Target = Authenticator> + Send + Sync {}
 
-impl<T> DerefAuth for T
-where T: std::ops::Deref<Target=Authenticator> + Send + Sync {}
+impl<T> DerefAuth for T where T: std::ops::Deref<Target = Authenticator> + Send + Sync {}
