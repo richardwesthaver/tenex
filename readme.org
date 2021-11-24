@@ -1,4 +1,4 @@
-# Created 2021-11-23 Tue 04:46
+# Created 2021-11-24 Wed 03:12
 #+title: tenex
 A Rust HTTP Client library.
 - ergonomic wrappers for foreign APIs
@@ -8,14 +8,14 @@ A Rust HTTP Client library.
   - async task pools (cross_API_chaining, chatbots_with_triggers, deployment_pipelines)
 
 #+results: 
-|---------+-------------------------------------------------------------------------------------------------------------------------|
-| name    | [[https://rwest.io/m#tenex][tenex]]                                                                                     |
-| version | alpha-0.1                                                                                                               |
-| vc      | [[https://hg.rwest.io/tenex/rev/c1ee0399d690][52+:c1ee0399d690]], [[https://github.com/richardwesthaver/tenex][github]] |
-| updated | 3 days ago                                                                                                              |
-| lines   | 25603 = λ:23308 #:157 _:2138                                                                                            |
-| langs   | (Markdown Org Python Rust Toml)                                                                                         |
-|---------+-------------------------------------------------------------------------------------------------------------------------|
+|---------+------------------------------------------------------------------------------------------------------------------------|
+| name    | [[https://rwest.io/m#tenex][tenex]]                                                                                    |
+| version | alpha-0.1                                                                                                              |
+| vc      | [[https://hg.rwest.io/tenex/rev/0e10340be809][53:0e10340be809]], [[https://github.com/richardwesthaver/tenex][github]] |
+| updated | 62 minutes ago                                                                                                         |
+| lines   | 25604 = λ:23309 #:157 _:2138                                                                                           |
+| langs   | (Markdown Org Python Rust Toml)                                                                                        |
+|---------+------------------------------------------------------------------------------------------------------------------------|
 #+results: 
 | includes | (readme.org Cargo.toml rustfmt.toml src/ aws/ google/) |
 
@@ -25,6 +25,6 @@ A Rust HTTP Client library.
 | aws          |   26 | 2021-11-08-21:37 |
 | Cargo.toml   | 1.3K | 2021-11-08-21:37 |
 | google       |   98 | 2021-11-08-21:37 |
-| readme.org   | 1.9K | 2021-11-23-03:21 |
+| readme.org   | 1.9K | 2021-11-23-04:46 |
 | rustfmt.toml |   53 | 2021-11-08-21:37 |
 | src          |   74 | 2021-11-08-21:37 |
