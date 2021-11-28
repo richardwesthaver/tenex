@@ -1,4 +1,4 @@
-# Created 2021-11-24 Wed 03:12
+# Created 2021-11-28 Sun 03:47
 #+title: tenex
 A Rust HTTP Client library.
 - ergonomic wrappers for foreign APIs
@@ -11,8 +11,8 @@ A Rust HTTP Client library.
 |---------+------------------------------------------------------------------------------------------------------------------------|
 | name    | [[https://rwest.io/m#tenex][tenex]]                                                                                    |
 | version | alpha-0.1                                                                                                              |
-| vc      | [[https://hg.rwest.io/tenex/rev/0e10340be809][53:0e10340be809]], [[https://github.com/richardwesthaver/tenex][github]] |
-| updated | 62 minutes ago                                                                                                         |
+| vc      | [[https://hg.rwest.io/tenex/rev/ab4e721b88b4][54:ab4e721b88b4]], [[https://github.com/richardwesthaver/tenex][github]] |
+| updated | 4 days ago                                                                                                             |
 | lines   | 25604 = λ:23309 #:157 _:2138                                                                                           |
 | langs   | (Markdown Org Python Rust Toml)                                                                                        |
 |---------+------------------------------------------------------------------------------------------------------------------------|
@@ -25,6 +25,6 @@ A Rust HTTP Client library.
 | aws          |   26 | 2021-11-08-21:37 |
 | Cargo.toml   | 1.3K | 2021-11-08-21:37 |
 | google       |   98 | 2021-11-08-21:37 |
-| readme.org   | 1.9K | 2021-11-23-04:46 |
+| readme.org   | 1.9K | 2021-11-24-03:12 |
 | rustfmt.toml |   53 | 2021-11-08-21:37 |
 | src          |   74 | 2021-11-08-21:37 |
