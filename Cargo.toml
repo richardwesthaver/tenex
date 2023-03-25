@@ -33,7 +33,7 @@ serde_json = "1.0.66"
 serde = { version = "1.0.127", features = ["derive"] }
 ron = "0.6.4"
 chrono = { version = "0.4.19", features = ["serde"] }
-lettre = { version = "0.10.0-rc.3", path = "../contrib/rust/lettre", features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "builder"], optional = true }
+lettre = { version = "0.10.0-rc.3", features = ["smtp-transport", "tokio1", "tokio1-rustls-tls", "builder"], optional = true }
 jwt = { version = "0.15.0", optional = true }
 oauth2 = { version = "4.1.0", optional = true }
 # octocrab = { version = "0.12", optional = true }
